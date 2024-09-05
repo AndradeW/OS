@@ -2,8 +2,8 @@
 
 // Definir el pin donde se conectará la luz (por ejemplo, un LED)
 const int yellowLed = 13;
-const int redLed = 12;
-const int greenLed = 11;
+const int redLed1 = 12;
+const int greenLed1 = 11;
 
 // Variables para el modo intermitente
 bool intermitente = false; // Para controlar el modo intermitente
@@ -14,8 +14,8 @@ void setup()
 {
     // Configurar el pin como salida
     pinMode(yellowLed, OUTPUT);
-    pinMode(redLed, OUTPUT);
-    pinMode(greenLed, OUTPUT);
+    pinMode(redLed1, OUTPUT);
+    pinMode(greenLed1, OUTPUT);
 
     // Iniciar la comunicación serial (tasa de baudios, similar a bps)
     Serial.begin(9600);
@@ -46,11 +46,11 @@ void loop()
         {
         case 1:
             Serial.println("1 -> Encender/apagar la luz verde");
-            digitalWrite(greenLed, !digitalRead(greenLed));
+            digitalWrite(greenLed1, !digitalRead(greenLed1));
             break;
         case 2:
             Serial.println("2 -> Encender/apagar la luz rojo");
-            digitalWrite(redLed, !digitalRead(redLed));
+            digitalWrite(redLed1, !digitalRead(redLed1));
             break;
         case 3:
             Serial.println("3 -> Encender/apagar la luz amarilla");
@@ -58,14 +58,14 @@ void loop()
             break;
         case 4:
             Serial.println("4 -> Encender todas las luces");
-            digitalWrite(greenLed, HIGH);
-            digitalWrite(redLed, HIGH);
+            digitalWrite(greenLed1, HIGH);
+            digitalWrite(redLed1, HIGH);
             digitalWrite(yellowLed, HIGH);
             break;
         case 5:
             Serial.println("5 -> Apagar todas las luces");
-            digitalWrite(greenLed, LOW);
-            digitalWrite(redLed, LOW);
+            digitalWrite(greenLed1, LOW);
+            digitalWrite(redLed1, LOW);
             digitalWrite(yellowLed, LOW);
             break;
         case 6:
@@ -85,8 +85,8 @@ void loop()
         {
             previousTime = currentTime;
             // Cambiar el estado de la luz (encender/apagar)
-            digitalWrite(greenLed, !digitalRead(greenLed));
-            digitalWrite(redLed, !digitalRead(redLed));
+            digitalWrite(greenLed1, !digitalRead(greenLed1));
+            digitalWrite(redLed1, !digitalRead(redLed1));
             digitalWrite(yellowLed, !digitalRead(yellowLed));
         }
     }
