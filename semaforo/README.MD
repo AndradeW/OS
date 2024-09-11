@@ -1,6 +1,6 @@
 I. Elabora el siguiente esquema en la Protoboard.
 
-![imagen](#)
+![imagen](esquema.PNG)
 
 II. Resuelve los siguientes requerimientos:
 
