@@ -4,10 +4,6 @@ const int green = 13;
 const int blue = 12;
 const int red = 11;
 
-String r;
-String g;
-String b;
-
 void setup()
 {
     pinMode(red, OUTPUT);
@@ -21,42 +17,23 @@ void loop()
 {
     if (Serial.available() > 0)
     {
-        Serial.println("Ingrese un valor entre 0 - 255 RED: ");
-        r = Serial.parseInt();
+        String color = Serial.readStringUntil('\n');
 
-        Serial.println("Ingrese un valor entre 0 - 255 GREEN: ");
-        g = Serial.parseInt();
+        // Separar los valores por espacio
+        int commaIndex1 = color.indexOf(' ');     // Primer espacio
+        int commaIndex2 = color.lastIndexOf(' '); // Segundo espacio
 
-        Serial.println("Ingrese un valor entre 0 - 255 BLUE: ");
-        b = Serial.parseInt();
+        // Serial.println((String) "Usted ingreso: " + commaIndex1 + " " + commaIndex2);
 
-        Serial.println("Salio");
+        // Extraer los valores como Strings
+        String r = color.substring(0, commaIndex1);
+        String g = color.substring(commaIndex1 + 1, commaIndex2);
+        String b = color.substring(commaIndex2 + 1);
+
+        Serial.println((String) "Usted ingreso: " + r + " " + g + " " + b);
+
         analogWrite(red, r.toInt());
         analogWrite(green, g.toInt());
         analogWrite(blue, b.toInt());
     }
 }
-
-/* void getColor(string color){
-
-    switch (color)
-    {
-    case 'red':
-
-        break;
-
-    default:
-        break;
-    }
-
-} */
-
-// Color palette[] = {
-//     {255, 0, 0},    // Rojo
-//     {0, 255, 0},    // Verde
-//     {0, 0, 255},    // Azul
-//     {255, 255, 0},  // Amarillo
-//     {0, 255, 255},  // Cian
-//     {255, 0, 255},  // Magenta
-//     {192, 192, 192} // Gris claro
-// };
