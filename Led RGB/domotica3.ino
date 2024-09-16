@@ -23,7 +23,7 @@ void loop()
         int commaIndex1 = color.indexOf(' ');     // Primer espacio
         int commaIndex2 = color.lastIndexOf(' '); // Segundo espacio
 
-        // Serial.println((String) "Usted ingreso: " + commaIndex1 + " " + commaIndex2);
+        // Serial.println((String) "Index: " + commaIndex1 + " " + commaIndex2);
 
         // Extraer los valores como Strings
         String r = color.substring(0, commaIndex1);
