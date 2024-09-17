@@ -11,6 +11,9 @@ void setup()
     pinMode(blue, OUTPUT);
 
     Serial.begin(9600);
+
+    Serial.println("Ingrese los valores separados por espacio 0-255 para RGB");
+    Serial.println("Ejemplo: 225 100 150");
 }
 
 void loop()
